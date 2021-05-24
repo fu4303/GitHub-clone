@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const menuButton = document.querySelector('#menu');
 
 const dropdownMenu = document.querySelector('#dropdownMenu');
