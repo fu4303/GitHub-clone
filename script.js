@@ -1,7 +1,7 @@
+import { ACCESSTOKEN } from './assets/apiKey.js';
+
 const menuButton = document.querySelector('#menu');
 const dropdownMenu = document.querySelector('#dropdownMenu');
-const emoticonText = document.querySelector('#emoticon-text');
-const emoticon = document.querySelector('#emoticon');
 const usernameQuery = document.querySelector('#username');
 const loader = document.querySelector('#loader');
 const searchBtn = document.querySelector('#btn');
@@ -17,7 +17,6 @@ const repoListWrapper = document.querySelector('#repoList');
 const errorWrapper = document.querySelector('#error');
 
 const githubUrl = 'https://api.github.com/graphql';
-const githubToken = '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';
 
 const months = {
   0: 'Jan',
@@ -42,14 +41,8 @@ menuButton.addEventListener('click', function () {
   }
 });
 
-emoticon.addEventListener('mouseover', function () {
-  emoticonText.classList.remove('hide__text');
-  emoticonText.classList.add('show__text');
-});
-
-emoticon.addEventListener('mouseout', function () {
-  emoticonText.classList.remove('show__text');
-  emoticonText.classList.add('hide__text');
+searchBtn.addEventListener('click', function () {
+  handleSearch();
 });
 
 function generateQuery(username) {
@@ -100,8 +93,8 @@ function generateQuery(username) {
 `;
 }
 
-function handleSearch(e) {
-  e.preventDefault();
+function handleSearch() {
+  // e.preventDefault();
   searchBtn.classList.add('hide');
   loader.classList.add('show');
   getRepositories(githubUrl, generateQuery(usernameQuery.value))
@@ -136,7 +129,7 @@ async function getRepositories(url = '', query) {
       query: query,
     }),
     headers: {
-      Authorization: 'bearer ' + githubToken,
+      Authorization: 'bearer ' + ACCESSTOKEN,
       'Content-Type': 'application/json',
     },
   });
