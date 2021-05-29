@@ -4,559 +4,242 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- fontawesome stylesheet -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    /> -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- stylesheet -->
     <link rel="stylesheet" href="./style.css" />
     <title>Your Repository</title>
   </head>
   <body>
-    <!-- start of navbar -->
-    <nav class="navbar">
-      <span
-        id="menu"
-        class="iconify"
-        data-icon="octicon:three-bars-16"
-        data-inline="false"
-      ></span>
-      <div class="navbar__list">
+    <div id="result__page" class="hide">
+      <!-- start of navbar -->
+      <nav class="navbar navbar__dark">
+        <span
+          id="menu"
+          class="iconify"
+          data-icon="octicon:three-bars-16"
+          data-inline="false"
+        ></span>
+        <div class="navbar__list">
+          <span
+            class="iconify"
+            data-icon="octicon:mark-github-16"
+            data-inline="false"
+          ></span>
+          <div class="navbar__search">
+            <input type="text" placeholder="Search or jump to..." />
+            <div>/</div>
+          </div>
+          <p class="navbar__item-pull">
+            <span class="long">Pull requests</span>
+            <span class="short">Pulls</span>
+          </p>
+          <p>Issues</p>
+          <p>Marketplace</p>
+          <p>Explore</p>
+        </div>
+        <div class="navbar__icons">
+          <div class="navbar__icons-item bell">
+            <span
+              class="iconify"
+              data-icon="octicon:bell-16"
+              data-inline="false"
+            ></span>
+          </div>
+          <div class="navbar__icons-item add">
+            <span
+              class="iconify"
+              data-icon="octicon:plus-16"
+              data-inline="false"
+            ></span>
+            <span
+              class="iconify"
+              data-icon="octicon:triangle-down-16"
+              data-inline="false"
+            ></span>
+          </div>
+          <div id="profileImage" class="navbar__icons-item profile"></div>
+        </div>
+      </nav>
+      <div id="dropdownMenu" class="navbar__menu">
+        <div class="navbar__search-alt">
+          <input type="text" placeholder="Search or jump to..." />
+          <div>/</div>
+        </div>
+        <p class="dropdown__item">Dashboard</p>
+        <p class="dropdown__item">Pull requests</p>
+        <p class="dropdown__item">Issues</p>
+        <p class="dropdown__item">Marketplace</p>
+        <p class="dropdown__item">Explore</p>
+        <p class="dropdown__item">Codespaces</p>
+        <p class="dropdown__item">Sponsors</p>
+        <p class="dropdown__item">Settings</p>
+        <p id="dropdownProfileImage" class="dropdown__item"></p>
+        <p class="dropdown__item">
+          <span
+            class="iconify"
+            data-icon="octicon:sign-out-16"
+            data-inline="false"
+          ></span>
+          Sign out
+        </p>
+      </div>
+      <!-- end of navbar -->
+
+      <main>
+        <div id="userDetails" class="user__details"></div>
+        <div>
+          <div class="header">
+            <p>
+              <span
+                class="iconify"
+                data-icon="octicon:book-16"
+                data-inline="false"
+              ></span>
+              Overview
+            </p>
+            <p id="repoCount" class="active"></p>
+            <p>
+              <span
+                class="iconify"
+                data-icon="octicon:project-16"
+                data-inline="false"
+              ></span>
+              Projects
+            </p>
+            <p>
+              <span
+                class="iconify"
+                data-icon="octicon:package-16"
+                data-inline="false"
+              ></span>
+              Packages
+            </p>
+          </div>
+          <div class="actions">
+            <div>
+              <input type="text" placeholder="Find a repository..." />
+
+              <div class="actions__dropdown">
+                <div class="action__item">
+                  Type
+                  <span
+                    class="iconify"
+                    data-icon="octicon:triangle-down-16"
+                    data-inline="false"
+                  ></span>
+                </div>
+                <div class="action__item">
+                  Language
+                  <span
+                    class="iconify"
+                    data-icon="octicon:triangle-down-16"
+                    data-inline="false"
+                  ></span>
+                </div>
+                <div class="action__item">
+                  Sort
+                  <span
+                    class="iconify"
+                    data-icon="octicon:triangle-down-16"
+                    data-inline="false"
+                  ></span>
+                </div>
+              </div>
+            </div>
+            <div id="repoList" class="repos"></div>
+            <div class="repo__buttons">
+              <p><span class="prev">Previous</span> <span>Next</span></p>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div>
+          <p class="copywrite">&copy; 2021 GitHub, Inc.</p>
+          <p>Terms</p>
+          <p>Privacy</p>
+          <p>Security</p>
+          <p>Status</p>
+          <p>Docs</p>
+        </div>
         <span
           class="iconify"
           data-icon="octicon:mark-github-16"
           data-inline="false"
         ></span>
-        <div class="navbar__search">
-          <input type="text" placeholder="Search or jump to..." />
-          <div>/</div>
+        <div>
+          <p>Contact GitHub</p>
+          <p>Pricing</p>
+          <p>API</p>
+          <p>Training</p>
+          <p>Blog</p>
+          <p>About</p>
         </div>
-        <p class="navbar__item-pull">
-          <span class="long">Pull requests</span>
-          <span class="short">Pulls</span>
-        </p>
-        <p>Issues</p>
-        <p>Marketplace</p>
-        <p>Explore</p>
-      </div>
-      <div class="navbar__icons">
-        <div class="navbar__icons-item">
-          <span
-            class="iconify"
-            data-icon="octicon:bell-16"
-            data-inline="false"
-          ></span>
-        </div>
-        <div class="navbar__icons-item add">
-          <span
-            class="iconify"
-            data-icon="octicon:plus-16"
-            data-inline="false"
-          ></span>
-          <span
-            class="iconify"
-            data-icon="octicon:triangle-down-16"
-            data-inline="false"
-          ></span>
-        </div>
-        <div class="navbar__icons-item profile">
-          <img src="./assets/profile.jpg" alt="profile" />
-          <span
-            class="iconify"
-            data-icon="octicon:triangle-down-16"
-            data-inline="false"
-          ></span>
-        </div>
-      </div>
-    </nav>
-    <div id="dropdownMenu" class="navbar__menu">
-      <div class="navbar__search-alt">
-        <input type="text" placeholder="Search or jump to..." />
-        <div>/</div>
-      </div>
-      <p class="dropdown__item">Dashboard</p>
-      <p class="dropdown__item">Pull requests</p>
-      <p class="dropdown__item">Issues</p>
-      <p class="dropdown__item">Marketplace</p>
-      <p class="dropdown__item">Explore</p>
-      <p class="dropdown__item">Codespaces</p>
-      <p class="dropdown__item">Sponsors</p>
-      <p class="dropdown__item">Settings</p>
-      <p class="dropdown__item">
-        <img src="./assets/profile.jpg" alt="profile" />
-        pena56
-      </p>
-      <p class="dropdown__item">
-        <span
-          class="iconify"
-          data-icon="octicon:sign-out-16"
-          data-inline="false"
-        ></span>
-        Sign out
-      </p>
+      </footer>
     </div>
-    <!-- end of navbar -->
 
-    <main>
-      <div class="user__details">
-        <div class="user">
-          <img src="./assets/profile.jpg" />
-          <p>
-            Moses Ogbopina
-            <span>pena56</span>
-          </p>
-        </div>
-        <div class="meta">
-          <div>
-            <span
-              class="iconify"
-              data-icon="octicon:smiley-16"
-              data-inline="false"
-            ></span>
-            Set status
-          </div>
-          <p>React Developer</p>
-          <button>Edit profile</button>
-        </div>
-        <p>
+    <div id="search__page" class="show">
+      <div id="error" class="error__wrapper hide__error">
+        Could not find the User with the username 'calebbenji'."
+      </div>
+      <nav class="navbar fixed navbar__noBg">
+        <div class="navbar__list">
           <span
             class="iconify"
-            data-icon="octicon:people-16"
+            data-icon="octicon:mark-github-16"
             data-inline="false"
           ></span>
-          3 followers . 2 following .
-          <span
-            class="iconify"
-            data-icon="octicon:star-16"
-            data-inline="false"
-          ></span>
-          14
-        </p>
-        <div class="badge">
-          <p>Achievements</p>
-          <div>
-            <img src="./assets/badge.png" alt="" />
+          <div class="navbar__search">
+            <input type="text" placeholder="Search or jump to..." />
+            <div>/</div>
+          </div>
+          <p class="navbar__item-pull">
+            <span class="long">Pull requests</span>
+            <span class="short">Pulls</span>
+          </p>
+          <p>Issues</p>
+          <p>Marketplace</p>
+          <p>Explore</p>
+        </div>
+        <div class="navbar__icons">
+          <div class="navbar__icons-item">
+            <span
+              id="menu"
+              class="iconify"
+              data-icon="octicon:three-bars-16"
+              data-inline="false"
+            ></span>
+          </div>
+          <div class="navbar__icons-item add">
+            <span
+              class="iconify"
+              data-icon="octicon:plus-16"
+              data-inline="false"
+            ></span>
+            <span
+              class="iconify"
+              data-icon="octicon:triangle-down-16"
+              data-inline="false"
+            ></span>
+          </div>
+          <div class="navbar__icons-item profile">
+            <img src="./assets/profile.jpg" alt="profile" />
+            <span
+              class="iconify"
+              data-icon="octicon:triangle-down-16"
+              data-inline="false"
+            ></span>
           </div>
         </div>
-      </div>
-      <div>
-        <div class="header">
-          <p>
-            <span
-              class="iconify"
-              data-icon="octicon:book-16"
-              data-inline="false"
-            ></span>
-            Overview
-          </p>
-          <p class="active">
-            <span
-              class="iconify"
-              data-icon="octicon:repo-16"
-              data-inline="false"
-            ></span>
-            Repositories
-            <span class="counter">34</span>
-          </p>
-          <p>
-            <span
-              class="iconify"
-              data-icon="octicon:project-16"
-              data-inline="false"
-            ></span>
-            Projects
-          </p>
-          <p>
-            <span
-              class="iconify"
-              data-icon="octicon:package-16"
-              data-inline="false"
-            ></span>
-            Packages
-          </p>
-        </div>
-        <div class="actions">
-          <div>
-            <button>
-              <span
-                class="iconify"
-                data-icon="octicon:repo-16"
-                data-inline="false"
-              ></span>
-              New
-            </button>
-
-            <input type="text" placeholder="Find a repository..." />
-
-            <div class="actions__dropdown">
-              <div class="action__item">
-                Type
-                <span
-                  class="iconify"
-                  data-icon="octicon:triangle-down-16"
-                  data-inline="false"
-                ></span>
-              </div>
-              <div class="action__item">
-                Language
-                <span
-                  class="iconify"
-                  data-icon="octicon:triangle-down-16"
-                  data-inline="false"
-                ></span>
-              </div>
-              <div class="action__item">
-                Sort
-                <span
-                  class="iconify"
-                  data-icon="octicon:triangle-down-16"
-                  data-inline="false"
-                ></span>
-              </div>
-            </div>
-          </div>
-          <div class="repos">
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">mediumish</p>
-                <p class="repo__desc">
-                  A medium Style Application built with Django
-                </p>
-                <div class="repo__tags">
-                  <p>python</p>
-                  <p>django</p>
-                </div>
-                <div class="repo__stats">
-                  <p>
-                    <span class="circle circle__javascript"></span> JavaScript
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:star-16"
-                      data-inline="false"
-                    ></span>
-                    2
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    1
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">optimus-pro</p>
-                <div class="repo__stats">
-                  <p>
-                    <span class="circle circle__javascript"></span> JavaScript
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">test-api</p>
-                <div class="repo__stats">
-                  <p><span class="circle circle__python"></span> Python</p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">instagram-clone</p>
-                <p class="repo__desc">
-                  An instagram clone using react and firebase
-                </p>
-                <div class="repo__tags">
-                  <p>react</p>
-                  <p>firebase</p>
-                  <p>javascript</p>
-                  <p>frontend</p>
-                </div>
-                <div class="repo__stats">
-                  <p>
-                    <span class="circle circle__javascript"></span> JavaScript
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:star-16"
-                      data-inline="false"
-                    ></span>
-                    2
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    1
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">omoki</p>
-
-                <div class="repo__stats">
-                  <p><span class="circle circle__html"></span> HTML</p>
-
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">100-Days-Of-ML-Code</p>
-                <p class="repo__forked">
-                  Forked from <span>Avik-Jain/100-Days-Of-ML-Code</span>
-                </p>
-                <p class="repo__desc">100 Days of ML Coding</p>
-                <div class="repo__stats">
-                  <p><span class="circle circle__python"></span> Python</p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    8,119
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:law-16"
-                      data-inline="false"
-                    ></span>
-                    MIT License
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">100-days-of-code</p>
-                <p class="repo__forked">
-                  Forked from <span>kallaway/100-days-of-code</span>
-                </p>
-                <p class="repo__desc">
-                  Fork this template for the 100 days journal - to keep yourself
-                  accountable
-                </p>
-                <div class="repo__stats">
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    9,461
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">Housing.ng</p>
-                <p class="repo__desc">
-                  A Platform for landlords to display their properties and meet
-                  prospective tenants.
-                </p>
-                <div class="repo__stats">
-                  <p><span class="circle circle__php"></span> PHP</p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:star-16"
-                      data-inline="false"
-                    ></span>
-                    2
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    1
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-
-            <div class="repo">
-              <div class="repo__details">
-                <p class="repo__name">slash-hack-2.0</p>
-                <p class="repo__forked">
-                  Forked from <span> solomoreal/slash-hack-2.0</span>
-                </p>
-                <p class="repo__desc">
-                  this is a feature app we are building to combat assualt
-                </p>
-                <div class="repo__stats">
-                  <p><span class="circle circle__css"></span> CSS</p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:star-16"
-                      data-inline="false"
-                    ></span>
-                    2
-                  </p>
-                  <p>
-                    <span
-                      class="iconify"
-                      data-icon="octicon:repo-forked-16"
-                      data-inline="false"
-                    ></span>
-                    1
-                  </p>
-                  <p>Updated on Apr 9</p>
-                </div>
-              </div>
-              <div class="star__wrapper">
-                <div>
-                  <span
-                    class="iconify"
-                    data-icon="octicon:star-16"
-                    data-inline="false"
-                  ></span>
-                  Star
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="repo__buttons">
-            <p><span class="prev">Previous</span> <span>Next</span></p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div>
-        <p class="copywrite">&copy; 2021 GitHub, Inc.</p>
-        <p>Terms</p>
-        <p>Privacy</p>
-        <p>Security</p>
-        <p>Status</p>
-        <p>Docs</p>
-      </div>
-      <div>
-        <p>Contact GitHub</p>
-        <p>Pricing</p>
-        <p>API</p>
-        <p>Training</p>
-        <p>Blog</p>
-        <p>About</p>
-      </div>
-    </footer>
+      </nav>
+      <h1>Where the world builds software</h1>
+      <p>Find developer with their username</p>
+      <form onsubmit="handleSearch(event)" class="search__form">
+        <input id="username" type="text" placeholder="Username" />
+        <button id="btn" type="submit">Search</button>
+        <div id="loader" class="spinner-3"></div>
+      </form>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
