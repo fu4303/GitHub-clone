@@ -24,7 +24,7 @@ a {
   position: fixed;
   top: 0;
   width: 80%;
-  background-color: red;
+  background-color: #cb2431;
   color: #ffffff;
   margin: 0 auto;
   display: flex;
@@ -32,6 +32,7 @@ a {
   justify-content: center;
   padding: 24px 0;
   transition: top 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .hide__error {
@@ -63,7 +64,7 @@ a {
 }
 
 #search__page > p {
-  color: #ffffff;
+  color: #8193b2;
   font-size: 24px;
   text-align: center;
 }
@@ -510,12 +511,11 @@ main > div {
 
 .url {
   cursor: pointer;
-  border-bottom: thin solid transparent;
 }
 
 .url:hover {
   color: #0366d6;
-  border-bottom: thin solid #0366d6;
+  text-decoration: underline;
 }
 
 .meta > button {
@@ -667,12 +667,19 @@ main > div {
   flex-direction: column;
 }
 
-.repo {
+.repo,
+.repo__empty {
   display: flex;
   width: 100%;
   border-top: thin solid #d1d5da;
   padding-top: 24px;
   padding-bottom: 14px;
+}
+
+.repo__empty {
+  padding: 24px 0;
+  justify-content: center;
+  font-weight: 500;
 }
 
 .repo__details {
@@ -719,12 +726,12 @@ main > div {
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
+  text-decoration: none;
   width: fit-content;
 }
 
 .repo__name:hover {
-  border-bottom: 2px solid #0366d6;
+  text-decoration: underline;
 }
 
 .repo__forked {

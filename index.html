@@ -147,9 +147,9 @@
               </div>
             </div>
             <div id="repoList" class="repos"></div>
-            <div class="repo__buttons">
+            <!-- <div class="repo__buttons">
               <p><span class="prev">Previous</span> <span>Next</span></p>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>
@@ -179,9 +179,7 @@
     </div>
 
     <div id="search__page" class="show">
-      <div id="error" class="error__wrapper hide__error">
-        Could not find the User with the username 'calebbenji'."
-      </div>
+      <div id="error" class="error__wrapper hide__error"></div>
       <nav class="navbar fixed navbar__noBg">
         <div class="navbar__list">
           <span
@@ -193,46 +191,10 @@
             <input type="text" placeholder="Search or jump to..." />
             <div>/</div>
           </div>
-          <p class="navbar__item-pull">
-            <span class="long">Pull requests</span>
-            <span class="short">Pulls</span>
-          </p>
-          <p>Issues</p>
-          <p>Marketplace</p>
-          <p>Explore</p>
-        </div>
-        <div class="navbar__icons">
-          <div class="navbar__icons-item">
-            <span
-              id="menu"
-              class="iconify"
-              data-icon="octicon:three-bars-16"
-              data-inline="false"
-            ></span>
-          </div>
-          <div class="navbar__icons-item add">
-            <span
-              class="iconify"
-              data-icon="octicon:plus-16"
-              data-inline="false"
-            ></span>
-            <span
-              class="iconify"
-              data-icon="octicon:triangle-down-16"
-              data-inline="false"
-            ></span>
-          </div>
-          <div class="navbar__icons-item profile">
-            <span
-              class="iconify"
-              data-icon="octicon:triangle-down-16"
-              data-inline="false"
-            ></span>
-          </div>
         </div>
       </nav>
       <h1>Where the world builds software</h1>
-      <p>Find developer with their username</p>
+      <p>Find developers with their username</p>
       <div class="search__form">
         <input id="username" type="text" placeholder="Username" />
         <button id="btn" type="submit">Search</button>
