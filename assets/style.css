@@ -395,7 +395,7 @@ main > div {
   background: #ffffff;
   position: absolute;
   left: 85%;
-  bottom: 30%;
+  bottom: 50%;
   border: thin solid #eaecef;
   display: flex;
   padding: 12px;
@@ -737,6 +737,7 @@ main > div {
 .repo__forked {
   color: #586069;
   font-size: 12px;
+  width: fit-content;
 }
 
 .repo__forked > span {
@@ -915,6 +916,23 @@ footer > .iconify:hover {
 
   .navbar__item-pull > .short {
     display: block;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer > div {
+    gap: 0;
+  }
+
+  footer > div > p {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  footer > .iconify {
+    display: none;
   }
 }
 

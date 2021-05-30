@@ -43,16 +43,21 @@ export function generateUserDetails(htmlElement, user, username) {
       <div id="emoticon">
         ${
           user.status
-            ? `<span
+            ? user.status.emojiHTML
+              ? `<span
             class="iconify"
-          >${user.status.emojiHTML}</span>
-          <p id="emoticon-text" class="hide__text">${user.status.message}</p>`
+          >${user.status.emojiHTML}</span> <p id="emoticon-text" class="hide__text">${user.status.message}</p>`
+              : `<span
+          class="iconify"
+          data-icon="octicon:smiley-16"
+          data-inline="false"
+        ></span> <p id="emoticon-text" class="hide__text">${user.status.message}</p>`
             : `<span
           class="iconify"
           data-icon="octicon:smiley-16"
           data-inline="false"
         ></span>
-        <p id="emoticon-text" class="hide__text">Set status</p>`
+        <p id="emoticon-text" class="hide__text"> status</p>`
         }
         
       </div>
@@ -184,22 +189,32 @@ export function generateRepoList(htmlElement, repos, username) {
                   : ''
               }
               
-              <p>
+              ${
+                repo.stargazerCount > 0
+                  ? `<p>
                 <span
                   class="iconify"
                   data-icon="octicon:star-16"
                   data-inline="false"
                 ></span>
                 ${repo.stargazerCount}
-              </p>
-              <p>
+              </p>`
+                  : ``
+              }
+              
+              ${
+                repo.forkCount > 0
+                  ? `<p>
                 <span
                   class="iconify"
                   data-icon="octicon:repo-forked-16"
                   data-inline="false"
                 ></span>
                 ${repo.forkCount}
-              </p>
+              </p>`
+                  : ``
+              }
+              
               <p>Updated on ${formatDate(repo.updatedAt)}</p>
             </div>
           </div>
